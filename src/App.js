@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux';
-import { unicorn } from './redux-store';
+import { reduxStore } from './redux-store';
 import Counter from './Counter';
 
 
@@ -9,7 +9,7 @@ import Counter from './Counter';
 
 export default function App() {
   return (
-    <Provider store={unicorn}>
+    <Provider store={reduxStore}>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

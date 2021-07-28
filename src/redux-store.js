@@ -15,7 +15,7 @@ const reducer = (state, action) => {
   return state;
 };
 
-export const unicorn = createStore(
+export const reduxStore = createStore(
   reducer,
   0,
   composeEnhancers(),
