@@ -3,9 +3,8 @@ import './App.css';
 import { Provider } from 'react-redux'
 
 
-function App() {
+export default function App() {
   return (
-    <Provider>
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -20,11 +19,10 @@ function App() {
           >
           Learn React
         </a>
-        <button onClick={}>increase</button>
-        <button onClick={}>decrease</button>
-        <h1>{counter}</h1>
+        <button>increase</button>
+        <button>decrease</button>
+        <h1>0</h1>
       </header>
     </div>
-    </Provider>
   );
 }
