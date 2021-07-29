@@ -1,22 +1,17 @@
 import { createStore, compose } from 'redux';
+import {reducer } from './reducer';
 
 // Activate redux chrome dev tools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const reducer = (state, action) => {
-  if(action.type === 'increase') {
-    return state + 1;
-  }
-
-  if(action.type === 'decrease') {
-    return state - 1;
-  }
-
-  return state;
+const initialState = {
+  shoppingCart: {
+    items: [],
+  },
 };
 
 export const reduxStore = createStore(
   reducer,
-  0,
+  initialState,
   composeEnhancers(),
 );
