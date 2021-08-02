@@ -1,8 +1,10 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { removeFromCartActionCreator, REMOVE_FROM_CART_ACTION } from '../redux-state/actions';
 
 const ShoppingCart = () => {
   const shoppingCart = useSelector(state => state.shoppingCart);
+  const dispatch = useDispatch();
 
   console.log('shoppingCart: ', shoppingCart);
 
@@ -18,6 +20,10 @@ const ShoppingCart = () => {
         return (
           <div>
             {item.title} - ${item.price/100}
+            <button
+            onClick={() => dispatch(
+              removeFromCartActionCreator(item.id)
+              )}>Remove</button>
           </div>
         )
       })}
