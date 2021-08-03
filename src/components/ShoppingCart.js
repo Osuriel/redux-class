@@ -16,6 +16,7 @@ const ShoppingCart = () => {
       border: '2px solid blue',
       width: "100%",
     }}>
+      <h1>Shopping Cart</h1>
       {shoppingCart.items.map(item => {
         return (
           <div>
