@@ -25,3 +25,15 @@ export const removeFromCartActionCreator = (itemId) => {
 }
 
 export const LOG_IN_ACTION = 'codeImmersives/logIn';
+
+export const loginActionCreator = (authorizedUser) => {
+  return {
+    type: LOG_IN_ACTION,
+    payload: {
+      id: authorizedUser.id,
+      userName: authorizedUser.userName,
+      name: authorizedUser.name,
+      city: authorizedUser.city,
+    },
+  }
+};

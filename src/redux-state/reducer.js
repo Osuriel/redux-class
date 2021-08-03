@@ -35,9 +35,11 @@ export const reducer = (state, action) => {
     return {
       ...state,
       user: {
-        userId: '123',
-        name: 'abc',
-      }
+        id: action.payload.name,
+        userName: action.payload.name,
+        name: action.payload.name,
+        city: action.payload.city,
+      },
     };
   }
 
