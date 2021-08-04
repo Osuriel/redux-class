@@ -5,14 +5,18 @@ import { initialState as userInitialState, reducer as userReducer } from './user
 // Activate redux chrome dev tools
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const rootReducer = combineReducers({
+  shoppingCart: shoppingCartReducer,
+  user: userReducer,
+});
+
+const initialState = {
+  shoppingCart: shoppingCartInitialState,
+  user: userInitialState,
+};
+
 export const reduxStore = createStore(
-  combineReducers({
-    shoppingCart: shoppingCartReducer,
-    user: userReducer,
-  }),
-  {
-    shoppingCart: shoppingCartInitialState,
-    user: userInitialState,
-  },
+  rootReducer,
+  initialState,
   composeEnhancers(),
 );

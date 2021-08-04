@@ -1,5 +1,6 @@
 // ACTIONS
 export const LOG_IN_ACTION = 'codeImmersives/logIn';
+export const SET_FAV_COLOR_ACTION = 'codeImmersives/setFavoriteColor';
 
 // ACTION CREATORS
 export const loginActionCreator = (authorizedUser) => {
@@ -14,6 +15,15 @@ export const loginActionCreator = (authorizedUser) => {
   }
 };
 
+export const setFavoriteColorActionCreator = (color) => {
+  return {
+    type: SET_FAV_COLOR_ACTION,
+    payload: {
+      color,
+    },
+  }
+};
+
 export const initialState = null;
 
 // REDUCER
@@ -24,6 +34,13 @@ export const reducer = (state, action) => {
       userName: action.payload.name,
       name: action.payload.name,
       city: action.payload.city,
+    };
+  }
+
+  if(action.type === SET_FAV_COLOR_ACTION) {
+    return {
+      ...state,
+      favoriteColor: action.payload.color,
     };
   }
   

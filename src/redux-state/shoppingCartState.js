@@ -31,7 +31,6 @@ export const initialState = {
 
 // Reducer
 export const reducer = (state = initialState, action) => {
-  console.log({action, state});
   if(action.type === ADD_TO_CART_ACTION){
     const newItem = action.payload.newItem;
 
@@ -43,7 +42,6 @@ export const reducer = (state = initialState, action) => {
         newItem,
       ],
     }
-    console.log({newState});
     return newState;
   }
 

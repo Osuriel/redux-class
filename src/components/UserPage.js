@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { setFavoriteColorActionCreator } from '../redux-state/userState';
 
 const UserPage = () => {
   const user = useSelector(state => state.user);
+  const dispatch = useDispatch();
 
   const [favColor, setFavColor] = useState('red');
+
+  const handleSetColor = () => {
+    dispatch(setFavoriteColorActionCreator(favColor));
+  };
 
   if(!user){
     return <h1>No user</h1>
@@ -20,7 +27,7 @@ const UserPage = () => {
         value={favColor}
         onChange={event => setFavColor(event.target.value)}
       />
-      <button onClick={() => console.log('favColor: ', favColor)}>Set</button>
+      <button onClick={handleSetColor}>Set</button>
     </div>
   )
 }

@@ -57,9 +57,19 @@ const Navigation = () => {
 }
 
 const HeadBar = () => {
+  const user = useSelector(state => state.user);
+
+  let bg;
+
+  if(user !== undefined && user.favoriteColor !== undefined){
+    bg = user.favoriteColor;
+  } else {
+    bg = 'red'
+  }
+  
   return (
     <div style={{
-      background: 'red',
+      background: bg,
       position: 'fixed',
       height: '60px',
       width: '100vw',
