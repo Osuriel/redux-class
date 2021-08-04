@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchItems } from '../databaseMock';
-import { addToCartActionCreator, ADD_TO_CART_ACTION } from '../redux-state/actions';
+import { addToCartActionCreator, ADD_TO_CART_ACTION } from '../redux-state/shoppingCartState';
 
 const ProductList = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchUsers } from '../databaseMock';
-import { loginActionCreator } from '../redux-state/actions';
+import { loginActionCreator } from '../redux-state/userState';
 
 const authUser = (users, userName, password) => {
   const matchingUser = users.find(user => {

@@ -2,15 +2,18 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fetchItems } from '../databaseMock';
-import { LOG_IN_ACTION } from '../redux-state/actions';
 
 import {
-  Link
+  Link,
 } from "react-router-dom";
 
 const UserInfo = () => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.user);
+
+  if(user){
+    return <p>Hi, {user.name}</p>
+  }
 
   return (
     <div style={{
@@ -22,12 +25,11 @@ const UserInfo = () => {
         <h5>Hi {user.name}!!</h5>
       )
       : (
-        <button
-          onClick={() => dispatch({
-          type: LOG_IN_ACTION
-        })}>
-          Log in
-        </button>
+        <Link to={`/login`}>
+          <button>
+            Log in
+          </button>
+        </Link>
       )
     }        
     </div>
