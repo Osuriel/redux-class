@@ -61,7 +61,7 @@ const HeadBar = () => {
 
   let bg;
 
-  if(user !== undefined && user.favoriteColor !== undefined){
+  if((user !== undefined && user !== null) && user.favoriteColor !== undefined){
     bg = user.favoriteColor;
   } else {
     bg = 'red'
