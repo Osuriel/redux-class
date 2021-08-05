@@ -1,7 +1,11 @@
+import axios from 'axios';
+
 // ACTIONS
 // We set this as constants so that we can import them easily where we need to use them.
 export const ADD_TO_CART_ACTION = 'codeImmersives/addToCart';
 export const REMOVE_FROM_CART_ACTION = 'codeImmersives/removeFromCart';
+export const DISPLAY_QUOTE_ACTION = 'codeImmersives/displayQuote';
+
 
 
 
@@ -23,6 +27,24 @@ export const removeFromCartActionCreator = (itemId) => {
       itemId,
     }
   }
+}
+
+export const displayQuoteActionCreator = (quote) => async (dispatch, getState) => {
+
+  let quote;
+  try {
+    const response = await axios.get('http://localhost:3004/quote');
+    quote =  response.data.quote;
+  } catch (error) {
+    console.error(error);
+  }
+
+  dispatch({
+    type: DISPLAY_QUOTE_ACTION,
+    payload: {
+      quote,
+    }
+  })
 }
 
 export const initialState = {
@@ -52,6 +74,17 @@ export const reducer = (state = initialState, action) => {
     // all items that match the id to be removed.
     return {
       items: state.items.filter(item => item.id !== itemIdToRemove),
+    }
+  }
+
+  if(action.type === DISPLAY_QUOTE_ACTION){
+    const quote = action.payload.quote;
+
+    // we're copying the old state, but for the shopping cart items were filtering out
+    // all items that match the id to be removed.
+    return {
+      ...state,
+      quote,
     }
   }
 

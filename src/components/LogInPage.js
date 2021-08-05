@@ -34,7 +34,6 @@ const LogInPage = () => {
     
     
     if(authorizedUser){
-      console.log('loginActionCreator(authorizedUser): ', loginActionCreator(authorizedUser));
       dispatch(loginActionCreator(authorizedUser))
       console.log(authorizedUser);
     } else {

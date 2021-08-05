@@ -3,16 +3,18 @@ export const LOG_IN_ACTION = 'codeImmersives/logIn';
 export const SET_FAV_COLOR_ACTION = 'codeImmersives/setFavoriteColor';
 
 // ACTION CREATORS
-export const loginActionCreator = (authorizedUser) => {
-  return {
-    type: LOG_IN_ACTION,
-    payload: {
-      id: authorizedUser.id,
-      userName: authorizedUser.userName,
-      name: authorizedUser.name,
-      city: authorizedUser.city,
-    },
-  }
+export const loginActionCreator = (authorizedUser) => (dispatch, getState) => {
+  setTimeout(() => {
+    dispatch({
+      type: LOG_IN_ACTION,
+      payload: {
+        id: authorizedUser.id,
+        userName: authorizedUser.userName,
+        name: authorizedUser.name,
+        city: authorizedUser.city,
+      },
+    })
+  }, 10000)
 };
 
 export const setFavoriteColorActionCreator = (color) => {
