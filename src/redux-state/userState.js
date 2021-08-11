@@ -1,3 +1,5 @@
+import axios from "axios";
+
 // ACTIONS
 export const LOG_IN_ACTION = 'codeImmersives/logIn';
 export const SET_FAV_COLOR_ACTION = 'codeImmersives/setFavoriteColor';

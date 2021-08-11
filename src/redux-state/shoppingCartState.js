@@ -29,22 +29,21 @@ export const removeFromCartActionCreator = (itemId) => {
   }
 }
 
-export const displayQuoteActionCreator = (quote) => async (dispatch, getState) => {
-
-  let quote;
+export const displayQuoteActionCreator = () => async (dispatch) => {
   try {
     const response = await axios.get('http://localhost:3004/quote');
-    quote =  response.data.quote;
+    // a hour minutes go by
+    const quote =  response.data.quote;
+    
+    dispatch({
+      type: DISPLAY_QUOTE_ACTION,
+      payload: {
+        quote,
+      }
+    })
   } catch (error) {
     console.error(error);
   }
-
-  dispatch({
-    type: DISPLAY_QUOTE_ACTION,
-    payload: {
-      quote,
-    }
-  })
 }
 
 export const initialState = {

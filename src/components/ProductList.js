@@ -1,15 +1,16 @@
+import axios from 'axios';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fetchItems } from '../databaseMock';
-import { addToCartActionCreator, displayQuoteActionCreator } from '../redux-state/shoppingCartState';
+import { addToCartActionCreator, displayQuoteActionCreator, DISPLAY_QUOTE_ACTION } from '../redux-state/shoppingCartState';
 
 const ProductList = () => {
   const dispatch = useDispatch();
   const quote = useSelector(state => state.shoppingCart.quote);
 
   const products = fetchItems();
-
+  
   return (
     <div>
       <h2>{quote}</h2>
