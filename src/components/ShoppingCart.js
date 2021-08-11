@@ -1,8 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import colorProviderHOC from '../hoc/colorProviderHOC';
+import quoteProviderHOC from '../hoc/quoteProviderHOC';
 import { removeFromCartActionCreator, REMOVE_FROM_CART_ACTION } from '../redux-state/shoppingCartState';
 
-const ShoppingCart = () => {
+const ShoppingCart = (props) => {
+  const {color, quote} = props;
+  console.log('color in shopping cart: ', color)
   const shoppingCart = useSelector(state => state.shoppingCart);
   const dispatch = useDispatch();
 
@@ -18,9 +22,10 @@ const ShoppingCart = () => {
       width: "100%",
     }}>
       <h1>Shopping Cart</h1>
+      <h1>{quote}</h1>
       {shoppingCart.items.map(item => {
         return (
-          <div>
+          <div style={{background: color}}>
             {item.title} - ${item.price/100}
             <button
             onClick={() => dispatch(
@@ -33,4 +38,4 @@ const ShoppingCart = () => {
   )
 }
 
-export default ShoppingCart;
+export default quoteProviderHOC(ShoppingCart);

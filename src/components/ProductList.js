@@ -4,13 +4,14 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { fetchItems } from '../databaseMock';
 import { addToCartActionCreator, displayQuoteActionCreator, DISPLAY_QUOTE_ACTION } from '../redux-state/shoppingCartState';
+import NewStuff from './NewStuff';
 
 const ProductList = () => {
   const dispatch = useDispatch();
   const quote = useSelector(state => state.shoppingCart.quote);
 
   const products = fetchItems();
-  
+
   return (
     <div>
       <h2>{quote}</h2>
@@ -29,6 +30,7 @@ const ProductList = () => {
           </div>
         )
       })}
+      <NewStuff />
     </div>
   )
 }
